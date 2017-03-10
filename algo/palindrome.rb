@@ -1,7 +1,13 @@
 # Complete the method called palindrome? which should accept a string as a parameter and return a boolean indicated whether the string is a palindrome. A palindrome is a word that reads the same both forwards and backwards. Examples: eye, madam, racecar
 
 def palindrome?(string)
-
+  word_forwards = string
+  word_backwards = string.reverse
+  if word_backwards == word_forwards
+    return result = true
+  else
+    return result = false
+  end
 end
 
 # Driver code - don't touch anything below this line.
