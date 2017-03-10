@@ -13,7 +13,33 @@
 # if a Superhero has a special_tool their attack is tripled
 # if a Superhero is attacked and their hitpoints are less than 1, they are no longer alive
 # Superhero needs a grab_tool method, that sets the has_special_tool attribute to true.
+class Superhero
+  attr_reader :name, :hitpoints, :attack, :alive, :has_special_tool
+  attr_writer :hitpoints, :alive
+  def initialize(input)
+    @name = input[:name]
+    @hitpoints = input[:hitpoints]
+    @attack = input[:attack]
+    @alive = true
+    @has_special_tool = false
+  end
 
+  def hit(opponent)
+    if has_special_tool == false
+      opponent.hitpoints -= attack
+    else
+      opponent.hitpoints -= attack * 3
+    end
+    
+    if opponent.hitpoints < 1
+      opponent.alive = false
+    end
+  end
+
+  def grab_tool
+    @has_special_tool = true
+  end
+end
 
 # Driver code - don't touch anything below this line.
 puts "TESTING the Superhero class..."
